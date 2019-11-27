@@ -1,0 +1,6 @@
+<div class="alert alert-warning" role="alert" *ngFor="let item of items">
+    {{item.name}} - {{item.id}}
+    <div class="float-right" (click)="deletItem(item.id)">
+        <i class="far fa-trash-alt"></i>
+    </div>
+</div>
