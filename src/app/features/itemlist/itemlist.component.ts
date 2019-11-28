@@ -8,6 +8,9 @@ import { ConexionService } from 'src/app/services/conexion/conexion.service';
 })
 export class ItemlistComponent implements OnInit {
   items: any;
+  editarItem: any = {
+    name: ''
+  }
 
   constructor(private conexionService: ConexionService) { 
   }
@@ -22,7 +25,15 @@ export class ItemlistComponent implements OnInit {
     });
   }
 
-  deletItem(id: number) {
+  deletItem(id) {
+    this.conexionService.deteleItem(id);
+  }
 
+  editItem(item){
+    this.editarItem = item;
+  }
+
+  addItemEdit(){
+    this.conexionService.editItem(this.editarItem);
   }
 }
